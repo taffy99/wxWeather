@@ -1,0 +1,6 @@
+<!--pages/index/index.wxml-->
+<view class='weather-wrapper'>
+  <image src='{{nowWeatherBackground}}' class='cover'></image>
+  <view class="temp">{{nowTemp}}</view>
+  <view class='weather'>{{nowWeather}}</view>
+</view>
