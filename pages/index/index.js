@@ -23,8 +23,8 @@ Page({
   data: {
     nowTemp: '',
     nowWeather: '',
-    nowWeatherBackground: ''
-
+    nowWeatherBackground: '',
+    forecastList:[]
   },
 
   // 获取api数据
@@ -38,25 +38,43 @@ Page({
         'content-type': 'application/json'
       },
       success: (res) => {
+        console.log(res.data);
         let result = res.data.result;
-        let temp = result.now.temp;
-        let weather = result.now.weather;
-
-        this.setData({
-          nowTemp: temp,
-          nowWeather: weatherMap[weather],
-          nowWeatherBackground: './images/' + weather + '-bg.png'
-        });
-
-        wx.setNavigationBarColor({
-          frontColor: '#000000',
-          backgroundColor: backgroundColor[weather],
-        });
+        this.setNow(result);
+        this.setFuture(result);
       },
       complete:()=>{
         callBack && callBack();
       }
     })
+  },
+  setNow(result){ //获取当前天气
+    let temp = result.now.temp;
+    let weather = result.now.weather;
+    this.setData({
+      nowTemp: temp + 'º',
+      nowWeather: weatherMap[weather],
+      nowWeatherBackground: './images/' + weather + '-bg.png'
+    });
+
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: backgroundColor[weather],
+    });
+  },
+  setFuture(result){ //获取未来天气
+    let forecast = result.forecast;
+    let nowHour = new Date().getHours();//获取当前时间
+    let forecastList = [];
+    for (let i = 0; i < 8; i++) {
+      forecastList.push({
+        time: (i * 3 + nowHour) % 24 + "时",
+        iconpath: './images/' + forecast[i].weather + '-icon.png',
+        temp: forecast[i].temp + 'º'
+      })
+    };
+    forecastList[0].time = "现在";
+    this.setData({ forecastList }); 
   },
   /**
    * 生命周期函数--监听页面加载

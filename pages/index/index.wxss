@@ -26,3 +26,35 @@
   opacity: 0.6
 
 }
+.future-weather{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40rpx;
+  margin-bottom:45rpx;
+}
+.timeIcon{
+ width: 36rpx;
+ height: 28rpx;
+ margin-right: 10rpx;
+}
+.timeText{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.5;
+}
+.forecast-list{
+  display: flex;  
+}
+.forecast-item{
+  width:120rpx;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+}
+.weatherIcon{
+  width: 90rpx;
+  height: 90rpx;
+  margin:25rpx 0;
+}

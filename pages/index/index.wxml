@@ -4,3 +4,17 @@
   <view class="temp">{{nowTemp}}</view>
   <view class='weather'>{{nowWeather}}</view>
 </view>
+<view class='future-weather'>
+  <image src="./images/time-icon.png" class='timeIcon'></image>
+  <view class='timeText'>未来24小时天气预测</view>
+</view>
+
+<scroll-view scroll-x>
+<view class="forecast-list">
+  <view class='forecast-item' wx:for="{{forecastList}}">
+    <view>{{item.time}}</view>
+     <image src='{{item.iconpath}}' class='weatherIcon'></image>
+      <view>{{item.temp}}</view>
+  </view>
+</view>
+</scroll-view>
