@@ -1,0 +1,10 @@
+<view class='date-item' wx:for="{{futureWeather}}">
+  <view class='date-wrapper'>
+      <view class='date-text'>
+       <text>{{item.weekDay}}</text>
+       <text class='day'>{{item.date}}</text>
+      </view>
+      <view class='date-temp'>{{item.minTemp}} ~ {{item.maxTemp}}</view>
+      <image class='weather-icon' src='{{item.weatherIcon}}'></image>
+  </view> 
+</view>

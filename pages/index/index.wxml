@@ -3,14 +3,14 @@
   <image src='{{nowWeatherBackground}}' class='cover'></image>
   <view class="temp">{{nowTemp}}</view>
   <view class='weather'>{{nowWeather}}</view>
-  <view class='today-weather'>
+  <view class='today-weather'  bindtap='onTapDayWeather'>
     <view>{{nowdate}} 今天</view>
     <view>{{minTemp}} ~ {{maxTemp}}</view>
-    <image src='./images/arrow.png' class='rightArrow'></image>
+    <image src='../images/arrow.png' class='rightArrow'></image>
   </view>
 </view>
 <view class='future-weather'>
-  <image src="./images/time-icon.png" class='timeIcon'></image>
+  <image src="../images/time-icon.png" class='timeIcon'></image>
   <view class='timeText'>未来24小时天气预测</view>
 </view>
 

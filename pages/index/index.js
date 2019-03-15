@@ -29,7 +29,12 @@ Page({
     maxTemp:'',
     nowdate:''
   },
-
+  /**
+  * 生命周期函数--监听页面加载
+  */
+  onLoad: function (options) {
+    this.getNow();
+  },
   // 获取api数据
   getNow(callBack){
     wx.request({
@@ -41,7 +46,7 @@ Page({
         'content-type': 'application/json'
       },
       success: (res) => {
-        console.log(res.data);
+        // console.log(res.data);
         let result = res.data.result;
         this.setNow(result);
         this.setFuture(result);
@@ -62,7 +67,7 @@ Page({
     this.setData({
       nowTemp: temp + 'º',
       nowWeather: weatherMap[weather],
-      nowWeatherBackground: './images/' + weather + '-bg.png',
+      nowWeatherBackground: '../images/' + weather + '-bg.png',
       minTemp:today.minTemp+'º',
       maxTemp:today.maxTemp+'º',
       nowdate:year+'-'+ month +'-'+day
@@ -80,21 +85,19 @@ Page({
     for (let i = 0; i < 8; i++) {
       forecastList.push({
         time: (i * 3 + nowHour) % 24 + "时",
-        iconpath: './images/' + forecast[i].weather + '-icon.png',
+        iconpath: '../images/' + forecast[i].weather + '-icon.png',
         temp: forecast[i].temp + 'º'
       })
     };
     forecastList[0].time = "现在";
     this.setData({ forecastList }); 
+  }, 
+  //点击当天天气
+  onTapDayWeather(){
+    wx.navigateTo({
+      url: '/pages/list/list',
+    })
   },
- 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.getNow();
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
