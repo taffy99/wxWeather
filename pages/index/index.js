@@ -24,7 +24,10 @@ Page({
     nowTemp: '',
     nowWeather: '',
     nowWeatherBackground: '',
-    forecastList:[]
+    forecastList:[],
+    minTemp:'',
+    maxTemp:'',
+    nowdate:''
   },
 
   // 获取api数据
@@ -51,10 +54,18 @@ Page({
   setNow(result){ //获取当前天气
     let temp = result.now.temp;
     let weather = result.now.weather;
+    let today = result.today;
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth()+1;
+    let day = date.getDate();
     this.setData({
       nowTemp: temp + 'º',
       nowWeather: weatherMap[weather],
-      nowWeatherBackground: './images/' + weather + '-bg.png'
+      nowWeatherBackground: './images/' + weather + '-bg.png',
+      minTemp:today.minTemp+'º',
+      maxTemp:today.maxTemp+'º',
+      nowdate:year+'-'+ month +'-'+day
     });
 
     wx.setNavigationBarColor({
@@ -76,6 +87,7 @@ Page({
     forecastList[0].time = "现在";
     this.setData({ forecastList }); 
   },
+ 
   /**
    * 生命周期函数--监听页面加载
    */

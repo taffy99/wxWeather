@@ -58,3 +58,22 @@
   height: 90rpx;
   margin:25rpx 0;
 }
+.today-weather{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:30rpx;
+  line-height: 42rpx;
+  margin-top:25rpx;
+  opacity: 0.5;
+  position:absolute;
+  bottom:0;
+  left:40rpx;
+  right: 40rpx;
+  height: 90rpx;
+  border-top:1px solid rgba(0,0,0,0.1);
+}
+.rightArrow{
+  width: 13rpx;
+  height: 24rpx;
+}
