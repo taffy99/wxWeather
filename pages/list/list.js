@@ -11,13 +11,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.getFutureWeather();
+    console.log('list_onload')
+    let city = options.city;//从index页面传入的city值
+    this.getFutureWeather(city);
   },
-  getFutureWeather(callBack){
+  getFutureWeather(city,callBack){
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/future',
       data: {
-        city: '上海市',
+        city: city,
         time: new Date().getTime()
       },
       success: (res) => {
@@ -58,28 +60,28 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    console.log('list_onReady');
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    console.log('list_onShow');
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+    console.log('list_onHide');
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+    console.log('list_onUnload');
   },
 
   /**

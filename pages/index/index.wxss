@@ -1,7 +1,7 @@
 /* pages/index/index.wxss */
 .weather-wrapper{
   position: relative;
-  padding-top:174rpx;
+  padding-top:20rpx;
   padding-bottom: 250rpx;
 }
 .cover{
@@ -13,6 +13,29 @@
   height: 100%;
   z-index: -1;
 }
+.location-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom:20rpx;
+}
+.location-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.location-text{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  height: 42rpx;
+  opacity: 0.5;
+}
+.location-icon{
+  width: 21rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
 .temp{
   text-align: center;
   font-size: 200rpx;
@@ -21,8 +44,7 @@
 }
 .weather{
   text-align: center;
-  margin-top:40rpx;
-  line-height: 56rpx;
+  margin-top:30rpx;
   opacity: 0.6
 
 }
